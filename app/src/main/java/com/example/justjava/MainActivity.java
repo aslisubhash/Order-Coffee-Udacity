@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
     int numberOfCoffees = 0;
 
+
     /**
      * This method is called when the + button is clicked.
      */
@@ -45,8 +46,11 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(numberOfCoffees);
-        displayPrice(numberOfCoffees*10);
+//        String priceToBePaid = "Amount to be paid: $" + numberOfCoffees*10+System.lineSeparator()+"Thank You!";
+        String priceToBePaid = "Total: $";
+        int price = numberOfCoffees*10;
+        priceToBePaid = priceToBePaid+ price+ "\nThank You";
+        displayMessage(priceToBePaid);
     }
     /**
      * This method displays the given quantity value on the screen.
@@ -61,5 +65,12 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
